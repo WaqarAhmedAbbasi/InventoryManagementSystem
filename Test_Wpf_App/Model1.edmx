@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Test_WPF_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerCNIC" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustomerContactNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerNTN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustomerSTRN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutletName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="OutletNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Distribution">
+          <Key>
+            <PropertyRef Name="DistibutionId" />
+          </Key>
+          <Property Name="DistibutionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistibutionName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DistibutionAddress" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DistibutionNTN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistibutionSTRN" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesInfo">
+          <Key>
+            <PropertyRef Name="SalesOfficerId" />
+          </Key>
+          <Property Name="SalesOfficerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalesOfficerName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DeliveryManName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SKUTable">
+          <Key>
+            <PropertyRef Name="SKUId" />
+          </Key>
+          <Property Name="SKUId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SKUCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SKUName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TPRate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SalesTax" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Promo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NetRate" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <Function Name="spGetUserByUseremail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Test_WPF_1ModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distribution" EntityType="Self.Distribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesInfo" EntityType="Self.SalesInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SKUTable" EntityType="Self.SKUTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Test_WPF_1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerCNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerNTN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerSTRN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OutletName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OutletNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Test_WPF_1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <FunctionImport Name="spGetUserByUseremail" ReturnType="Collection(Test_WPF_1Model.spGetUserByUseremail_Result)">
+          <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Distributions" EntityType="Test_WPF_1Model.Distribution" />
+          <EntitySet Name="SalesInfoes" EntityType="Test_WPF_1Model.SalesInfo" />
+          <EntitySet Name="SKUTables" EntityType="Test_WPF_1Model.SKUTable" />
+        </EntityContainer>
+        <ComplexType Name="spGetUserByUseremail_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <EntityType Name="Distribution">
+          <Key>
+            <PropertyRef Name="DistibutionId" />
+          </Key>
+          <Property Name="DistibutionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistibutionName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DistibutionAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DistibutionNTN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistibutionSTRN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SalesInfo">
+          <Key>
+            <PropertyRef Name="SalesOfficerId" />
+          </Key>
+          <Property Name="SalesOfficerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalesOfficerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryManName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SKUTable">
+          <Key>
+            <PropertyRef Name="SKUId" />
+          </Key>
+          <Property Name="SKUId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SKUCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SKUName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TPRate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesTax" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Promo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NetRate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Test_WPF_1ModelStoreContainer" CdmEntityContainer="Test_WPF_1Entities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Test_WPF_1Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerCNIC" ColumnName="CustomerCNIC" />
+                <ScalarProperty Name="CustomerContactNumber" ColumnName="CustomerContactNumber" />
+                <ScalarProperty Name="CustomerNTN" ColumnName="CustomerNTN" />
+                <ScalarProperty Name="CustomerSTRN" ColumnName="CustomerSTRN" />
+                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+                <ScalarProperty Name="OutletNumber" ColumnName="OutletNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="Test_WPF_1Model.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spGetUserByUseremail" FunctionName="Test_WPF_1Model.Store.spGetUserByUseremail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Test_WPF_1Model.spGetUserByUseremail_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Distributions">
+            <EntityTypeMapping TypeName="Test_WPF_1Model.Distribution">
+              <MappingFragment StoreEntitySet="Distribution">
+                <ScalarProperty Name="DistibutionSTRN" ColumnName="DistibutionSTRN" />
+                <ScalarProperty Name="DistibutionNTN" ColumnName="DistibutionNTN" />
+                <ScalarProperty Name="DistibutionAddress" ColumnName="DistibutionAddress" />
+                <ScalarProperty Name="DistibutionName" ColumnName="DistibutionName" />
+                <ScalarProperty Name="DistibutionId" ColumnName="DistibutionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesInfoes">
+            <EntityTypeMapping TypeName="Test_WPF_1Model.SalesInfo">
+              <MappingFragment StoreEntitySet="SalesInfo">
+                <ScalarProperty Name="DeliveryManName" ColumnName="DeliveryManName" />
+                <ScalarProperty Name="SalesOfficerName" ColumnName="SalesOfficerName" />
+                <ScalarProperty Name="SalesOfficerId" ColumnName="SalesOfficerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SKUTables">
+            <EntityTypeMapping TypeName="Test_WPF_1Model.SKUTable">
+              <MappingFragment StoreEntitySet="SKUTable">
+                <ScalarProperty Name="NetRate" ColumnName="NetRate" />
+                <ScalarProperty Name="Promo" ColumnName="Promo" />
+                <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+                <ScalarProperty Name="TPRate" ColumnName="TPRate" />
+                <ScalarProperty Name="SKUName" ColumnName="SKUName" />
+                <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
+                <ScalarProperty Name="SKUId" ColumnName="SKUId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
